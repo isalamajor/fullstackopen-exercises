@@ -1,0 +1,14 @@
+sequenceDiagram
+browser->>server: HTTP GET spa.html
+server-->>browser: spa.html
+
+browser->>server: HTTP GET main.css
+server-->>browser: main.css
+
+browser->>server: HTTP GET spa.js
+server-->>browser: spa.js
+
+Note left of browser: exec spa.js - getJSON() 
+
+browser->>server: HTTP GET data.JSON
+server-->>browser: data.JSON

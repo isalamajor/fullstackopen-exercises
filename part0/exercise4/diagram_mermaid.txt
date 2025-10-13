@@ -1,0 +1,36 @@
+sequenceDiagram
+browser->>server: HTTP GET notes.html
+server-->>browser: notes.html
+
+browser->>server: HTTP GET main.css
+server-->>browser: main.css
+
+browser->>server: HTTP GET main.js
+server-->>browser: main.js
+
+Note left of browser: exec main.js - getJSON() 
+
+browser->>server: HTTP GET data.JSON
+server-->>browser: data.JSON
+
+Note left of browser: user enters new note & saves
+
+
+browser->>server: HTTP POST new_note.html
+
+
+Note right of browser: page is rendered again
+
+browser->>server: HTTP GET notes.html
+server-->>browser: notes.html
+
+browser->>server: HTTP GET main.css
+server-->>browser: main.css
+
+browser->>server: HTTP GET main.js
+server-->>browser: main.js
+
+Note left of browser: exec main.js - getJSON() 
+
+browser->>server: HTTP GET notes.JSON
+server-->>browser: notes.JSON
