@@ -23,6 +23,7 @@ const App = () => {
     const newVotes = [...votes];
     newVotes[selected] += 1;
     setVotes(newVotes)
+    
   }
 
   return (
@@ -39,7 +40,7 @@ const App = () => {
       <h1>Most voted anecdote</h1>
       <p>{anecdotes[votes.indexOf(Math.max(...votes))]}</p>
       <p>It has {Math.max(...votes)} votes</p>
-      
+
     </div>
   )
 }
