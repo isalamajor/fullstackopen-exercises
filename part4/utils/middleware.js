@@ -2,10 +2,17 @@ const jwt = require('jsonwebtoken')
 const logger = require('./logger')
 
 const requestLogger = (req, res, next) => {
-    logger.info('Method: ', req.method),
+  logger.info('Method: ', req.method),
     logger.info('Path: ', req.path),
     logger.info('Body: ', req.body)
-    next()
+  next()
+}
+
+const responseLogger = (req, res, next) => {
+  res.on('finish', () => {
+    logger.info('Status: ', res.statusCode)
+  })
+  next()
 }
 
 const unknownEndpoint = (request, response) => {
@@ -52,5 +59,6 @@ module.exports = {
   unknownEndpoint,
   errorHandler,
   tokenExtractor,
-  requireAuth
+  requireAuth,
+  responseLogger
 }
