@@ -79,9 +79,6 @@ app.post("/api/patients/:id/entries", (req, res) => {
   console.log("body", req.body);
   console.log(newEntry);
   patient.entries.push(newEntry);
-  // El paciente se actualiza automáticamente en patientsData
-  // porque es una referencia al mismo objeto
-
   return res.send(patient);
 });
 
